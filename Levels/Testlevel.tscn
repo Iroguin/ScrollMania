@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8psy7gaamvrh"]
+
+[ext_resource type="Texture2D" uid="uid://vcuc4er1etbw" path="res://textures/hexagonal_concrete_paving_diff_2k.jpg" id="1_6glc6"]
+[ext_resource type="PackedScene" uid="uid://btrl1pg15hu2e" path="res://Game objects/car1.tscn" id="1_fg4ug"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d3whf"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_s0b82"]
+sky_material = SubResource("ProceduralSkyMaterial_d3whf")
+
+[sub_resource type="Environment" id="Environment_i5n71"]
+background_mode = 2
+sky = SubResource("Sky_s0b82")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkcgm"]
+albedo_texture = ExtResource("1_6glc6")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i5n71")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0243423, 0)
+material_override = SubResource("StandardMaterial3D_fkcgm")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+material_override = SubResource("StandardMaterial3D_fkcgm")
+size = Vector3(100000, 0.2, 100000)
+
+[node name="caterham" parent="." instance=ExtResource("1_fg4ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -1)

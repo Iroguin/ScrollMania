@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://v6krn5a00osu"]
+
+[ext_resource type="Texture2D" uid="uid://vcuc4er1etbw" path="res://assets/textures/hexagonal_concrete_paving_diff_2k.jpg" id="1_woxhl"]
+[ext_resource type="PackedScene" uid="uid://btrl1pg15hu2e" path="res://game_objects/cars/caterham.tscn" id="2_btawp"]
+[ext_resource type="Script" path="res://game_objects/cars/scripts/car_camera.gd" id="3_avc0t"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v18rv"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_2w5uq"]
+sky_material = SubResource("ProceduralSkyMaterial_v18rv")
+
+[sub_resource type="Environment" id="Environment_e24l8"]
+background_mode = 2
+sky = SubResource("Sky_2w5uq")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrdbf"]
+albedo_texture = ExtResource("1_woxhl")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[node name="Testlevel" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.65139, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_e24l8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+material_override = SubResource("StandardMaterial3D_nrdbf")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+size = Vector3(1000, 0.2, 1000)
+
+[node name="caterham" parent="." instance=ExtResource("2_btawp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.816366, 0)
+
+[node name="CarCamera3D" type="Camera3D" parent="." node_paths=PackedStringArray("follow_node")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.10194, 0)
+script = ExtResource("3_avc0t")
+follow_node = NodePath("../caterham")
+target_distance = 4.0
+target_height = 1.25

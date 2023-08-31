@@ -29,6 +29,5 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("scroll_right"):
 		turning_radius -= 4.0
 	turning_radius = clamp(turning_radius,-25, 25)
-	print(linear_velocity.length())
 	$left_front.steering = deg_to_rad(turning_radius)
 	$right_front.steering = deg_to_rad(turning_radius)

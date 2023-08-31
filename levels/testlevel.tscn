@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://v6krn5a00osu"]
+[gd_scene load_steps=11 format=3 uid="uid://v6krn5a00osu"]
 
 [ext_resource type="Texture2D" uid="uid://vcuc4er1etbw" path="res://assets/textures/hexagonal_concrete_paving_diff_2k.jpg" id="1_woxhl"]
 [ext_resource type="PackedScene" uid="uid://btrl1pg15hu2e" path="res://game_objects/cars/caterham.tscn" id="2_btawp"]
 [ext_resource type="Script" path="res://game_objects/cars/scripts/car_camera.gd" id="3_avc0t"]
+[ext_resource type="Script" path="res://levels/CheckpointManager.gd" id="4_f8ujv"]
+[ext_resource type="Script" path="res://game_objects/checkpoint/checkpoint_area.gd" id="5_nquqt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v18rv"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -21,6 +23,9 @@ glow_enabled = true
 albedo_texture = ExtResource("1_woxhl")
 uv1_scale = Vector3(0.5, 0.5, 0.5)
 uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7yx6f"]
+size = Vector3(10, 10, 10)
 
 [node name="Testlevel" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.65139, 0)
@@ -48,3 +53,14 @@ script = ExtResource("3_avc0t")
 follow_node = NodePath("../caterham")
 target_distance = 4.0
 target_height = 1.25
+
+[node name="CheckpointManager" type="Node" parent="." node_paths=PackedStringArray("checkpoints")]
+script = ExtResource("4_f8ujv")
+checkpoints = [NodePath("../CheckpointArea"), NodePath("")]
+
+[node name="CheckpointArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.585764, 7.23802)
+script = ExtResource("5_nquqt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckpointArea"]
+shape = SubResource("BoxShape3D_7yx6f")

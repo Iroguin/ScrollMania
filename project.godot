@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-CheckpointManager="*res://levels/checkpoint_manager.gd"
+CheckpointManager="*res://game_objects/checkpoint/checkpoint_manager.gd"
 
 [input]
 

@@ -14,8 +14,12 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _process(_delta):
+	if linear_velocity.y < -30: 
+		self.linear_velocity = Vector3.ZERO
+		turning_radius = 0.0
+		self.global_position = CheckpointManager.last_position
+		self.global_rotation = CheckpointManager.last_checkpoint_rotation
 
 
 func _physics_process(delta):

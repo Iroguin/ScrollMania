@@ -1,6 +1,6 @@
 extends Area3D
 class_name CheckpointArea
-var entered:bool = false 
+signal checkpoint_entered(checkpoint:Node3D)
 
 # Called when the node enters the scene tree for the first time.
 func _enter_tree():
@@ -11,10 +11,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
 	pass
 
 func _body_entered(body):
 	if body.is_in_group("player"):
-		entered = true  
-		
+		self.emit_signal("checkpoint_entered", self)
+		self.queue_free()

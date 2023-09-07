@@ -66,3 +66,25 @@ script = ExtResource("5_nquqt")
 shape = SubResource("BoxShape3D_7yx6f")
 
 [node name="CarUI" parent="." instance=ExtResource("6_6714v")]
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D2"]
+size = Vector3(150, 1, 400)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D2/CSGBox3D"]
+operation = 2
+size = Vector3(149, 2, 399)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D2"]
+size = Vector3(100, 1, 200)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D2/CSGBox3D2"]
+operation = 2
+size = Vector3(99, 2, 201)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1.0132, 0, 0, 0, 1, 0, 0, 0, 1.49913, -16.4831, 0.295263, -0.0861773)
+polygon = PackedVector2Array(-1.63312, 1.41494, 4.73163, -0.388956, 0.671845, -0.226622)
+depth = 2.49

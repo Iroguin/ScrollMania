@@ -55,9 +55,8 @@ follow_node = NodePath("../Caterham")
 target_distance = 4.0
 target_height = 1.25
 
-[node name="CheckpointManager" type="Node" parent="." node_paths=PackedStringArray("checkpoints")]
+[node name="CheckpointManager" type="Node" parent="."]
 script = ExtResource("4_f8ujv")
-checkpoints = [NodePath("../CheckpointArea")]
 
 [node name="CheckpointArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.585764, 7.23802)

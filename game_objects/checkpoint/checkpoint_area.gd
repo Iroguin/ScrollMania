@@ -3,6 +3,8 @@ class_name CheckpointArea
 var entered:bool = false 
 
 # Called when the node enters the scene tree for the first time.
+func _enter_tree():
+	self.add_to_group("checkpoint")
 func _ready():
 	self.body_entered.connect(_body_entered)
 
@@ -13,6 +15,6 @@ func _process(delta):
 	pass
 
 func _body_entered(body):
-	if body.name == "caterham":
+	if body.is_in_group("player"):
 		entered = true  
 		

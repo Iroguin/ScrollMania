@@ -13,7 +13,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	var delta_v:Vector3 = self.global_position - follow_node.global_position
 	var target_pos:Vector3 = self.global_position
 	# ignore y

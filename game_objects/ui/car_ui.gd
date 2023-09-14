@@ -2,14 +2,22 @@ extends Control
 
 var seconds: float = 0.0
 var minutes: int = 0.0
+var track_finished: bool = false
+
+signal get_time_info(minutes: int, seconds: float)
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	CheckpointManager.track_finished.connect(_track_finished)
 
 
 func _physics_process(delta):
-	seconds += delta
-	if seconds > 59.0:
-		minutes += 1
-		seconds = 0.0
-	$TimerLabel.set_text("Timer: " + str(minutes) + ":" + str(snappedf(seconds, 1)))
+	if !track_finished:
+		seconds += delta
+		if seconds > 59.0:
+			minutes += 1
+			seconds = 0.0
+		$TimerLabel.set_text("Timer: " + str(minutes) + ":" + str(snappedf(seconds, 1)))
+
+func _track_finished() -> void:
+	track_finished = true
+	emit_signal("get_time_info", minutes, seconds)

@@ -59,7 +59,7 @@ target_distance = 4.0
 target_height = 1.25
 
 [node name="CheckpointArea" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.585764, 7.23802)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.585764, 32.7815)
 script = ExtResource("5_nquqt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckpointArea"]

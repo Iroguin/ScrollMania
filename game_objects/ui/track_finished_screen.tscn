@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://pf4eyj3q32qh"]
+[gd_scene load_steps=4 format=3 uid="uid://pf4eyj3q32qh"]
 
-[ext_resource type="Script" path="res://game_objects/ui/TrackFinishedScreen.gd" id="1_at3fl"]
+[ext_resource type="Script" path="res://game_objects/ui/scripts/track_finished_screen.gd" id="1_xjnlh"]
+[ext_resource type="PackedScene" uid="uid://no3crnq08mpa" path="res://game_objects/ui/restart_level.tscn" id="2_y0v5t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3pluh"]
 font_size = 24
@@ -12,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_at3fl")
+script = ExtResource("1_xjnlh")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -23,7 +24,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.243137, 0.243137, 0.243137, 0.67451)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="SaveScoreScreen" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -38,42 +40,45 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="TimerLabel" type="Label" parent="VBoxContainer"]
+[node name="TimerLabel" type="Label" parent="SaveScoreScreen"]
 layout_mode = 2
 text = "Finished time: 00:00"
 label_settings = SubResource("LabelSettings_3pluh")
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="SaveScoreScreen"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Would you like to save the game?"
 horizontal_alignment = 1
 
-[node name="NameTextBox" type="TextEdit" parent="VBoxContainer"]
+[node name="NameTextBox" type="TextEdit" parent="SaveScoreScreen"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 placeholder_text = "Add your name"
 
-[node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Buttons" type="HBoxContainer" parent="SaveScoreScreen"]
 layout_mode = 2
 
-[node name="No" type="Button" parent="VBoxContainer/Buttons"]
+[node name="No" type="Button" parent="SaveScoreScreen/Buttons"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "No"
 
-[node name="Spacer" type="Control" parent="VBoxContainer/Buttons"]
+[node name="Spacer" type="Control" parent="SaveScoreScreen/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Yes" type="Button" parent="VBoxContainer/Buttons"]
+[node name="Yes" type="Button" parent="SaveScoreScreen/Buttons"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 disabled = true
 text = "Yes
 "
 
-[connection signal="text_changed" from="VBoxContainer/NameTextBox" to="." method="_on_name_text_box_text_changed"]
-[connection signal="pressed" from="VBoxContainer/Buttons/No" to="." method="_on_no_pressed"]
-[connection signal="pressed" from="VBoxContainer/Buttons/Yes" to="." method="_on_yes_pressed"]
+[node name="RestartLevel" parent="." instance=ExtResource("2_y0v5t")]
+layout_mode = 1
+
+[connection signal="text_changed" from="SaveScoreScreen/NameTextBox" to="." method="_on_name_text_box_text_changed"]
+[connection signal="pressed" from="SaveScoreScreen/Buttons/No" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="SaveScoreScreen/Buttons/Yes" to="." method="_on_yes_pressed"]

@@ -1,0 +1,93 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwdlsxvywvj4t"]
+
+[ext_resource type="Script" path="res://game_objects/ui/scripts/main_menu.gd" id="1_0a6ki"]
+[ext_resource type="PackedScene" uid="uid://caj5l2ny418mi" path="res://game_objects/ui/leaderboard_container.tscn" id="2_00ec2"]
+[ext_resource type="PackedScene" uid="uid://dy6tc4a40xgbx" path="res://game_objects/ui/level_select_container.tscn" id="2_8skpq"]
+[ext_resource type="PackedScene" uid="uid://v6krn5a00osu" path="res://levels/testlevel.tscn" id="3_1yger"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0a6ki")
+
+[node name="MainMenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -76.0
+offset_right = 95.0
+offset_bottom = 199.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="MainMenuContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Track Mania"
+horizontal_alignment = 1
+
+[node name="Spacer3" type="Control" parent="MainMenuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Play" type="Button" parent="MainMenuContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Spacer" type="Control" parent="MainMenuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Leaderboard" type="Button" parent="MainMenuContainer"]
+layout_mode = 2
+text = "Leaderboard"
+
+[node name="Spacer2" type="Control" parent="MainMenuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Exit" type="Button" parent="MainMenuContainer"]
+layout_mode = 2
+text = "Exit"
+
+[node name="LevelSelectContainer" parent="." instance=ExtResource("2_8skpq")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+levels = Array[PackedScene]([ExtResource("3_1yger")])
+
+[node name="LeaderboardContainer" parent="." instance=ExtResource("2_00ec2")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -84.5
+offset_right = 125.0
+offset_bottom = 84.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="MainMenuContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainMenuContainer/Leaderboard" to="." method="_on_leaderboard_pressed"]
+[connection signal="pressed" from="MainMenuContainer/Exit" to="." method="_on_exit_pressed"]

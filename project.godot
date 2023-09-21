@@ -11,13 +11,12 @@ config_version=5
 [application]
 
 config/name="ScrollMania"
-run/main_scene="res://levels/main_menu.tscn"
+run/main_scene="res://levels/main_level.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-CheckpointManager="*res://game_objects/checkpoint/checkpoint_manager.gd"
 GameManager="*res://game_objects/game_manager/game_manager.gd"
 
 [display]

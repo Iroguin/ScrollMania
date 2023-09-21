@@ -4,10 +4,12 @@ var seconds: float = 0.0
 var minutes: int = 0.0
 var track_finished: bool = false
 
+@onready var checkpoint_manager: CheckpointManager = get_tree().get_nodes_in_group("checkpoint_manager")[0]
+
 signal get_time_info(minutes: int, seconds: float)
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	CheckpointManager.track_finished.connect(_track_finished)
+	checkpoint_manager.track_finished.connect(_track_finished)
 
 
 func _physics_process(delta):

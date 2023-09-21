@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy6tc4a40xgbx"]
+
+[ext_resource type="Script" path="res://game_objects/ui/scripts/level_select_container.gd" id="1_s2a0w"]
+
+[node name="LevelSelectContainer" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_s2a0w")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="HBoxContainer/Back" to="." method="_on_back_pressed"]

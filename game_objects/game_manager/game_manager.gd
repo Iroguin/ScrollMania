@@ -4,10 +4,11 @@ class PlayerData:
 	var name: String
 	var minutes: int
 	var seconds: float
+	var level: String
 
 var player_data: Array[PlayerData] = []
 
-func set_player_data(name: String, minutes: int, seconds:float) -> void:
+func set_player_data(name: String, minutes: int, seconds:float, level: String) -> void:
 	var player_found: bool = false
 	for i in player_data:
 		if i.name == name:
@@ -18,7 +19,8 @@ func set_player_data(name: String, minutes: int, seconds:float) -> void:
 	if !player_found:
 		var data: PlayerData = PlayerData.new()
 		data.name = name
-		data.minutes = seconds
+		data.minutes = minutes
 		data.seconds = seconds
+		data.level = level
 		player_data.push_back(data)
 	

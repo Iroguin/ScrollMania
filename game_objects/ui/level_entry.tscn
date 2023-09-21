@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2b1pl5ydt4eo"]
+
+[ext_resource type="Script" path="res://game_objects/ui/scripts/level_entry.gd" id="1_khgnq"]
+
+[node name="LevelEntry" type="VBoxContainer"]
+script = ExtResource("1_khgnq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.521569, 0.521569, 0.521569, 1)
+
+[node name="LevelButton" type="Button" parent="."]
+layout_mode = 2
+text = "Level Name"
+
+[connection signal="pressed" from="LevelButton" to="." method="_on_level_button_pressed"]

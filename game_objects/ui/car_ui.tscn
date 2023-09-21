@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://br6147sq7egds"]
 
-[ext_resource type="Script" path="res://game_objects/ui/car_ui.gd" id="1_prue3"]
+[ext_resource type="Script" path="res://game_objects/ui/scripts/car_ui.gd" id="1_45i6b"]
 [ext_resource type="PackedScene" uid="uid://pf4eyj3q32qh" path="res://game_objects/ui/track_finished_screen.tscn" id="2_8thbk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3pluh"]
@@ -13,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_prue3")
+script = ExtResource("1_45i6b")
 
 [node name="TimerLabel" type="Label" parent="."]
 layout_mode = 1

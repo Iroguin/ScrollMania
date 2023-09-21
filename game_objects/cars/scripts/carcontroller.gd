@@ -8,6 +8,8 @@ extends VehicleBody3D
 var turning_radius:float = 0.0
 var time:float = 0.0
 var is_drifting:bool = false
+
+@onready var checkpoint_manager: CheckpointManager = get_tree().get_nodes_in_group("checkpoint_manager")[0]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -18,8 +20,8 @@ func _process(_delta):
 	if linear_velocity.y < -30: 
 		self.linear_velocity = Vector3.ZERO
 		turning_radius = 0.0
-		self.global_position = CheckpointManager.last_position
-		self.global_rotation = CheckpointManager.last_checkpoint_rotation
+		self.global_position = checkpoint_manager.last_position
+		self.global_rotation = checkpoint_manager.last_checkpoint_rotation
 
 
 func _physics_process(delta):

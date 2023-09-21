@@ -1,4 +1,7 @@
 extends Node
+
+class_name CheckpointManager
+
 var checkpoints:Array[CheckpointArea] =  []
 var checkpoints_passed:int = 0 
 var checkpoint_amount:int = 0
@@ -7,6 +10,8 @@ var checkpoint_amount:int = 0
 
 signal track_finished
 
+func _enter_tree() -> void:
+	add_to_group("checkpoint_manager")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for check in get_tree().get_nodes_in_group("checkpoint"): 
@@ -22,5 +27,3 @@ func _on_checkpoint_entered(checkpoint: Node3D):
 	last_position.y += 2.0
 	if checkpoints_passed == checkpoint_amount:
 		emit_signal("track_finished")
-	
-	

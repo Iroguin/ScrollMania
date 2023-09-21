@@ -28,5 +28,5 @@ func _physics_process(delta):
 	self.global_position = self.global_position.lerp(target_pos, delta * 20)
 	
 	last_look_at = self.global_position.lerp(follow_node.global_position, delta * 20.0)
-	if last_look_at != Vector3.ZERO:
+	if !Vector3.UP.cross(last_look_at - self.position).is_zero_approx():
 		look_at(last_look_at, Vector3.UP)

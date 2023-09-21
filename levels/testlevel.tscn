@@ -1,12 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://v6krn5a00osu"]
 
+[ext_resource type="Script" path="res://game_objects/checkpoint/checkpoint_manager.gd" id="1_i1fqn"]
 [ext_resource type="Texture2D" uid="uid://vcuc4er1etbw" path="res://assets/textures/hexagonal_concrete_paving_diff_2k.jpg" id="1_woxhl"]
 [ext_resource type="PackedScene" uid="uid://btrl1pg15hu2e" path="res://game_objects/cars/caterham.tscn" id="2_btawp"]
 [ext_resource type="Script" path="res://game_objects/cars/scripts/car_camera.gd" id="3_avc0t"]
-[ext_resource type="Script" path="res://game_objects/checkpoint/checkpoint_area.gd" id="5_nquqt"]
-[ext_resource type="PackedScene" uid="uid://br6147sq7egds" path="res://game_objects/ui/car_ui.tscn" id="6_6714v"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v18rv"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
@@ -29,6 +26,9 @@ size = Vector3(10, 10, 10)
 
 [node name="Testlevel" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.65139, 0)
+
+[node name="CheckpointManager" type="Node" parent="."]
+script = ExtResource("1_i1fqn")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_e24l8")

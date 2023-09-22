@@ -29,7 +29,7 @@ func _track_finished() -> void:
 func _get_time_info(minutes: int, seconds: float) -> void:
 	$SaveScoreScreen/TimerLabel.set_text("Finished time: " + str(minutes) + ":" + str(snappedf(seconds, 1)))
 	self.minutes = minutes
-	self.seconds = seconds
+	self.seconds = snappedf(seconds, 1)
 
 
 func _on_yes_pressed() -> void:

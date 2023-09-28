@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwdlsxvywvj4t"]
+[gd_scene load_steps=6 format=3 uid="uid://bwdlsxvywvj4t"]
 
 [ext_resource type="Script" path="res://game_objects/ui/scripts/main_menu.gd" id="1_0a6ki"]
 [ext_resource type="PackedScene" uid="uid://caj5l2ny418mi" path="res://game_objects/ui/leaderboard_container.tscn" id="2_00ec2"]
 [ext_resource type="PackedScene" uid="uid://dy6tc4a40xgbx" path="res://game_objects/ui/level_select_container.tscn" id="2_8skpq"]
 [ext_resource type="PackedScene" uid="uid://v6krn5a00osu" path="res://levels/testlevel.tscn" id="3_xvv3a"]
+[ext_resource type="PackedScene" uid="uid://bplo7jgr7v1in" path="res://levels/the_highway_to_heaven.tscn" id="4_7jqp2"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -72,7 +73,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-levels = Array[PackedScene]([ExtResource("3_xvv3a")])
+levels = Array[PackedScene]([ExtResource("3_xvv3a"), ExtResource("4_7jqp2")])
 
 [node name="LeaderboardContainer" parent="." instance=ExtResource("2_00ec2")]
 layout_mode = 1

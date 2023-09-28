@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bplo7jgr7v1in"]
+
+[ext_resource type="PackedScene" uid="uid://b1atmu21ivw1x" path="res://assets/blend/the highway to heaven.blend" id="1_8rxrc"]
+
+[node name="the highway to heaven" instance=ExtResource("1_8rxrc")]

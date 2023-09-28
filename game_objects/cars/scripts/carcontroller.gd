@@ -25,6 +25,7 @@ func _process(_delta):
 
 
 func _physics_process(delta):
+	print(linear_velocity.z)
 	if Input.is_action_pressed("scroll_press"):
 		time += delta
 		if time > 0.5:

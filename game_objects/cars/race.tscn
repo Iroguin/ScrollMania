@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://game_objects/cars/scripts/carcontroller.gd" id="1_gsw3m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bcq3s"]
-size = Vector3(1.4, 0.7, 3)
+size = Vector3(1.4, 0.7, 2.8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_caqkd"]
 resource_name = "carTire.005"
@@ -416,7 +416,7 @@ center_of_mass_mode = 1
 script = ExtResource("1_gsw3m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.532245, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.532, 0.1)
 shape = SubResource("BoxShape3D_bcq3s")
 
 [node name="right_rear" type="VehicleWheel3D" parent="."]
@@ -426,7 +426,7 @@ wheel_roll_influence = 0.0
 wheel_radius = 0.3
 wheel_rest_length = 0.07
 wheel_friction_slip = 8.5
-suspension_travel = 0.07
+suspension_travel = 0.7
 suspension_stiffness = 50.0
 suspension_max_force = 160.0
 
@@ -442,7 +442,7 @@ wheel_roll_influence = 0.0
 wheel_radius = 0.3
 wheel_rest_length = 0.07
 wheel_friction_slip = 6.5
-suspension_travel = 0.07
+suspension_travel = 0.7
 suspension_stiffness = 50.0
 suspension_max_force = 160.0
 
@@ -458,7 +458,7 @@ wheel_roll_influence = 0.0
 wheel_radius = 0.3
 wheel_rest_length = 0.07
 wheel_friction_slip = 8.5
-suspension_travel = 0.07
+suspension_travel = 0.7
 suspension_stiffness = 50.0
 suspension_max_force = 160.0
 
@@ -474,7 +474,7 @@ wheel_roll_influence = 0.0
 wheel_radius = 0.3
 wheel_rest_length = 0.07
 wheel_friction_slip = 6.5
-suspension_travel = 0.07
+suspension_travel = 0.7
 suspension_stiffness = 50.0
 suspension_max_force = 160.0
 

@@ -13,6 +13,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 vertical_scroll_mode = 0
 
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 

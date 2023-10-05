@@ -7,7 +7,7 @@ func _ready() -> void:
 	for level in levels: 
 		var level_select: Control = level_entry_container_scene.instantiate()
 		level_select.level = level
-		$ScrollContainer.add_child(level_select)
+		$ScrollContainer/HBoxContainer.add_child(level_select)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

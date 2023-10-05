@@ -1,5 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://crlob8qq4xaw6"]
+[gd_scene load_steps=10 format=3 uid="uid://crlob8qq4xaw6"]
 
 [ext_resource type="PackedScene" uid="uid://c2mditjrn0rkc" path="res://assets/blend/the highway to hell.blend" id="1_votvl"]
+[ext_resource type="Texture2D" uid="uid://t424ge0l6d70" path="res://assets/textures/hexagonal_concrete_paving_disp_2k.png" id="2_ihgtx"]
+[ext_resource type="PackedScene" uid="uid://btrl1pg15hu2e" path="res://game_objects/cars/caterham.tscn" id="2_mewch"]
+[ext_resource type="Script" path="res://game_objects/cars/scripts/car_camera.gd" id="3_aer7t"]
+[ext_resource type="Script" path="res://game_objects/checkpoint/checkpoint_manager.gd" id="4_kjlpp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_48a5v"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_ay2ob"]
+sky_material = SubResource("ProceduralSkyMaterial_48a5v")
+
+[sub_resource type="Environment" id="Environment_os7p3"]
+background_mode = 2
+sky = SubResource("Sky_ay2ob")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i20su"]
+albedo_texture = ExtResource("2_ihgtx")
 
 [node name="the highway to hell" instance=ExtResource("1_votvl")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
+environment = SubResource("Environment_os7p3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="1"]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Plane" parent="." index="2"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 24.0853, 0, 9.61332)
+surface_material_override/0 = SubResource("StandardMaterial3D_i20su")
+
+[node name="Caterham" parent="." index="4" instance=ExtResource("2_mewch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.082, 0, 0)
+
+[node name="CarCamera3D" type="Camera3D" parent="." index="5" node_paths=PackedStringArray("follow_node")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.082, 0.520528, 0)
+script = ExtResource("3_aer7t")
+follow_node = NodePath("../Caterham")
+
+[node name="CheckpointManager" type="Node" parent="." index="6"]
+script = ExtResource("4_kjlpp")

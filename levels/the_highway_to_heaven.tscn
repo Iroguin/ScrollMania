@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://game_objects/cars/scripts/car_camera.gd" id="2_7ffi8"]
 [ext_resource type="Script" path="res://game_objects/checkpoint/checkpoint_manager.gd" id="3_24xml"]
 [ext_resource type="PackedScene" uid="uid://br6147sq7egds" path="res://game_objects/ui/car_ui.tscn" id="5_httty"]
-[ext_resource type="PackedScene" uid="uid://bbrylinc72ppt" path="res://game_objects/cars/race.tscn" id="6_83ddv"]
-[ext_resource type="PackedScene" path="res://game_objects/checkpoint/checkpoint_area.tscn" id="6_bp1c1"]
+[ext_resource type="PackedScene" path="res://game_objects/cars/race.tscn" id="6_83ddv"]
+[ext_resource type="PackedScene" uid="uid://byu6ephdqfrfs" path="res://game_objects/checkpoint/checkpoint_area.tscn" id="6_bp1c1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wdic2"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -138,7 +138,7 @@ shadow_enabled = true
 environment = SubResource("Environment_ckiua")
 
 [node name="Level" type="Node3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
 [node name="Plane" type="MeshInstance3D" parent="Level"]
 transform = Transform3D(0.999983, 0, 0, 0, 0.999983, 0, 0, 0, 0.999983, 0, 0, 0)
@@ -164,7 +164,7 @@ mesh = SubResource("ArrayMesh_wkkoq")
 skeleton = NodePath("")
 
 [node name="CarCamera3D" type="Camera3D" parent="." node_paths=PackedStringArray("follow_node")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 81.522, 2.17832, -2.89824)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 163.134, 2.17832, -2.89824)
 script = ExtResource("2_7ffi8")
 follow_node = NodePath("../Race")
 
@@ -174,16 +174,16 @@ script = ExtResource("3_24xml")
 [node name="CarUI" parent="." instance=ExtResource("5_httty")]
 
 [node name="CheckpointArea" parent="." instance=ExtResource("6_bp1c1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.4321, 0, 73.8837)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.4321, 0, 149.914)
 
 [node name="CheckpointArea2" parent="." instance=ExtResource("6_bp1c1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.7297, 0, 59.5945)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.7297, 0, 120.972)
 
 [node name="CheckpointArea3" parent="." instance=ExtResource("6_bp1c1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.529, 0, -105.345)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.529, 0, -213.155)
 
 [node name="CheckpointArea4" parent="." instance=ExtResource("6_bp1c1")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 82.3232, -3.8147e-06, -81.9503)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 161.071, -3.8147e-06, -81.9503)
 
 [node name="Race" parent="." instance=ExtResource("6_83ddv")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 80.2807, 0.472387, 0)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 163.281, 0.472387, -1.15102)

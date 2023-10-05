@@ -23,7 +23,7 @@ func _ready():
 func _on_checkpoint_entered(checkpoint: Node3D):
 	checkpoints_passed += 1
 	last_position = get_tree().get_nodes_in_group("player")[0].global_position
-	last_checkpoint_rotation = Vector3(0, checkpoint.global_rotation.y, 0)
+	last_checkpoint_rotation = Vector3(0, get_tree().get_nodes_in_group("player")[0].global_rotation.y, 0)
 	last_position.y += 2.0
 	if checkpoints_passed == checkpoint_amount:
 		emit_signal("track_finished")

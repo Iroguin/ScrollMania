@@ -1,6 +1,6 @@
 extends VehicleBody3D
 
-@export var max_brake:float = 20000
+@export var max_brake:float = 100
 @export var max_speed:float = 100
 @export var global_grip:float = 1 + linear_velocity.z
 
@@ -29,7 +29,7 @@ func _physics_process(delta):
 	print(linear_velocity.z)
 	if Input.is_action_pressed("scroll_press"):
 		time += delta
-		if time > 0.5:
+		if time > 0.4:
 			is_drifting = false
 			$left_rear.brake = max_brake
 			$right_rear.brake = max_brake
@@ -48,13 +48,13 @@ func _physics_process(delta):
 	
 	if is_drifting == true:
 		print(transform.basis.z)
-		apply_central_force(transform.basis.z * 200)
+		apply_central_force(-transform.basis.z * 200)
 		$left_rear.engine_force = 0.0
 		$right_rear.engine_force = 0.0
-		$right_rear.wheel_friction_slip = 0.6
-		$left_rear.wheel_friction_slip = 0.6
-		$right_front.wheel_friction_slip = 0.7
-		$left_front.wheel_friction_slip = 0.7
+		$right_rear.wheel_friction_slip = global_grip * 0.5
+		$left_rear.wheel_friction_slip = global_grip * 0.5
+		$right_front.wheel_friction_slip = global_grip * 0.5
+		$left_front.wheel_friction_slip = global_grip * 0.5
 		
 	if is_drifting == false:
 		$right_rear.wheel_friction_slip = global_grip * 2

@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://c2mditjrn0rkc" path="res://assets/blend/the highway to hell.blend" id="1_votvl"]
 [ext_resource type="Texture2D" uid="uid://t424ge0l6d70" path="res://assets/textures/hexagonal_concrete_paving_disp_2k.png" id="2_ihgtx"]
-[ext_resource type="PackedScene" uid="uid://btrl1pg15hu2e" path="res://game_objects/cars/caterham.tscn" id="2_mewch"]
 [ext_resource type="Script" path="res://game_objects/cars/scripts/car_camera.gd" id="3_aer7t"]
 [ext_resource type="Texture2D" uid="uid://bdqpmeagl2qrl" path="res://assets/textures/tunnel_road.jpg" id="3_s72dj"]
 [ext_resource type="Script" path="res://game_objects/checkpoint/checkpoint_manager.gd" id="4_kjlpp"]
 [ext_resource type="PackedScene" uid="uid://br6147sq7egds" path="res://game_objects/ui/car_ui.tscn" id="6_hqg74"]
-[ext_resource type="PackedScene" uid="uid://byu6ephdqfrfs" path="res://game_objects/checkpoint/checkpoint_area.tscn" id="8_bvx4d"]
+[ext_resource type="PackedScene" path="res://game_objects/checkpoint/checkpoint_area.tscn" id="8_bvx4d"]
+[ext_resource type="PackedScene" uid="uid://bbrylinc72ppt" path="res://game_objects/cars/race.tscn" id="8_rdsaj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_48a5v"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -74,27 +74,28 @@ surface_material_override/0 = SubResource("StandardMaterial3D_i20su")
 [node name="Plane" parent="Plane" index="0"]
 mesh = SubResource("ArrayMesh_6faaj")
 
-[node name="Caterham" parent="." index="4" instance=ExtResource("2_mewch")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.082, 0, 0)
-
-[node name="CarCamera3D" type="Camera3D" parent="." index="5" node_paths=PackedStringArray("follow_node")]
+[node name="CarCamera3D" type="Camera3D" parent="." index="4" node_paths=PackedStringArray("follow_node")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.082, 0.520528, 0)
+current = true
 script = ExtResource("3_aer7t")
-follow_node = NodePath("../Caterham")
+follow_node = NodePath("../Race")
 
-[node name="CheckpointManager" type="Node" parent="." index="6"]
+[node name="CheckpointManager" type="Node" parent="." index="5"]
 script = ExtResource("4_kjlpp")
 
-[node name="CarUI" parent="." index="7" instance=ExtResource("6_hqg74")]
+[node name="CarUI" parent="." index="6" instance=ExtResource("6_hqg74")]
 
-[node name="CheckpointArea" parent="." index="8" instance=ExtResource("8_bvx4d")]
+[node name="CheckpointArea" parent="." index="7" instance=ExtResource("8_bvx4d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -126.758, 0, 158.823)
 
-[node name="CheckpointArea2" parent="." index="9" instance=ExtResource("8_bvx4d")]
+[node name="CheckpointArea2" parent="." index="8" instance=ExtResource("8_bvx4d")]
 transform = Transform3D(-0.765685, 0, -0.643215, 0, 1, 0, 0.643215, 0, -0.765685, 34.0309, 0, 214.4)
 
-[node name="CheckpointArea3" parent="." index="10" instance=ExtResource("8_bvx4d")]
+[node name="CheckpointArea3" parent="." index="9" instance=ExtResource("8_bvx4d")]
 transform = Transform3D(-0.632489, 0, -0.774569, 0, 1, 0, 0.774569, 0, -0.632489, 261.7, 0, 112.959)
 
-[node name="CheckpointArea4" parent="." index="11" instance=ExtResource("8_bvx4d")]
+[node name="CheckpointArea4" parent="." index="10" instance=ExtResource("8_bvx4d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -29.9661, 0, -17.8826)
+
+[node name="Race" parent="." index="11" instance=ExtResource("8_rdsaj")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -29.6922, 0.753455, 0)

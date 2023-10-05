@@ -1,6 +1,6 @@
 extends VehicleBody3D
 
-@export var max_brake:float = 100
+@export var max_brake:float = 50 + linear_velocity.z
 @export var max_speed:float = 100
 @export var global_grip:float = 1 + linear_velocity.z
 
@@ -29,7 +29,7 @@ func _physics_process(delta):
 	print(linear_velocity.z)
 	if Input.is_action_pressed("scroll_press"):
 		time += delta
-		if time > 0.4:
+		if time > 0.2:
 			is_drifting = false
 			$left_rear.brake = max_brake
 			$right_rear.brake = max_brake
@@ -57,14 +57,14 @@ func _physics_process(delta):
 		$left_front.wheel_friction_slip = global_grip * 0.5
 		
 	if is_drifting == false:
-		$right_rear.wheel_friction_slip = global_grip * 2
-		$left_rear.wheel_friction_slip = global_grip * 2
+		$right_rear.wheel_friction_slip = global_grip * 1.5
+		$left_rear.wheel_friction_slip = global_grip * 1.5
 		$right_front.wheel_friction_slip = global_grip * 1.5
 		$left_front.wheel_friction_slip = global_grip * 1.5
 	if Input.is_action_just_pressed("scroll_left"):
-		turning_radius = lerpf(turning_radius, turning_radius + 17.5, 10 * delta)
+		turning_radius = lerpf(turning_radius, turning_radius + 11.666, 5 * delta)
 	if Input.is_action_just_pressed("scroll_right"):
-		turning_radius = lerpf(turning_radius, turning_radius - 17.5, 10 * delta)
+		turning_radius = lerpf(turning_radius, turning_radius - 11.666, 5 * delta)
 	turning_radius = clamp(turning_radius,-35, 35)
 	$left_front.steering = deg_to_rad(turning_radius)
 	$right_front.steering = deg_to_rad(turning_radius)

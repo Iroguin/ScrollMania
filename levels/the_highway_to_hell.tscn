@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bdqpmeagl2qrl" path="res://assets/textures/tunnel_road.jpg" id="3_s72dj"]
 [ext_resource type="Script" path="res://game_objects/checkpoint/checkpoint_manager.gd" id="4_kjlpp"]
 [ext_resource type="PackedScene" uid="uid://br6147sq7egds" path="res://game_objects/ui/car_ui.tscn" id="6_hqg74"]
-[ext_resource type="PackedScene" uid="uid://byu6ephdqfrfs" path="res://game_objects/checkpoint/checkpoint_area.tscn" id="8_bvx4d"]
-[ext_resource type="PackedScene" path="res://game_objects/cars/race.tscn" id="8_rdsaj"]
+[ext_resource type="PackedScene" path="res://game_objects/checkpoint/checkpoint_area.tscn" id="8_bvx4d"]
+[ext_resource type="PackedScene" uid="uid://bbrylinc72ppt" path="res://game_objects/cars/race.tscn" id="8_rdsaj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_48a5v"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

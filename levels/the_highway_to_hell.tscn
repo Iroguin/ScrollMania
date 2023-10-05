@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://crlob8qq4xaw6"]
+[gd_scene load_steps=11 format=3 uid="uid://crlob8qq4xaw6"]
 
 [ext_resource type="PackedScene" uid="uid://c2mditjrn0rkc" path="res://assets/blend/the highway to hell.blend" id="1_votvl"]
 [ext_resource type="Texture2D" uid="uid://t424ge0l6d70" path="res://assets/textures/hexagonal_concrete_paving_disp_2k.png" id="2_ihgtx"]
 [ext_resource type="PackedScene" uid="uid://btrl1pg15hu2e" path="res://game_objects/cars/caterham.tscn" id="2_mewch"]
 [ext_resource type="Script" path="res://game_objects/cars/scripts/car_camera.gd" id="3_aer7t"]
 [ext_resource type="Script" path="res://game_objects/checkpoint/checkpoint_manager.gd" id="4_kjlpp"]
+[ext_resource type="PackedScene" uid="uid://br6147sq7egds" path="res://game_objects/ui/car_ui.tscn" id="6_hqg74"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_48a5v"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -45,3 +46,5 @@ follow_node = NodePath("../Caterham")
 
 [node name="CheckpointManager" type="Node" parent="." index="6"]
 script = ExtResource("4_kjlpp")
+
+[node name="CarUI" parent="." index="7" instance=ExtResource("6_hqg74")]

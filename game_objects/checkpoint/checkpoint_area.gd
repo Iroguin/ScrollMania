@@ -16,4 +16,5 @@ func _process(delta):
 func _body_entered(body):
 	if body.is_in_group("player"):
 		self.emit_signal("checkpoint_entered", self)
-		self.queue_free()
+		self.remove_from_group("checkpoint")
+		self.set_deferred("monitoring", false) 
